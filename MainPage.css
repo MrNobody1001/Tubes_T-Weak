@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    font-size: 3em;
+    color: white;
+}
+
+.logo {
+    padding-right: 10em;
+    padding-left: 3em;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nama {
+    font-size: 2em;
+}
+
+.menu_1 {
+    padding-right: 1em;
+}
+
+.atas{
+    min-height: 1080px;
+    width: auto;
+    background-image: url("/home_bg.jpg");
+    background-repeat: no-repeat;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+
+.bawah {
+    min-height: 950px;
+    background-image: url("/home_page_2.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: row;
+    padding-left: 4em;
+    padding-right: 4em;
+    position: relative;
+}
+
+.bawah::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.container_kanan_kiri {
+    display: flex;
+    flex-direction: row;
+}
+
+.kanan {
+    width: 960px;
+}
+
+.kiri, .kanan {
+    width: 960px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.container_kanan_kiri {
+    margin-top: 10em;
+}
+
+.tulis_besar {
+    color: white;
+    margin-bottom: 0.25em;
+    font-size: 5em;
+    font-weight: 1000;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.tulis_kecil {
+    color: white;
+    font-size: 1.75em;
+    margin-bottom: 1em;
+}
+
+.join_now {
+    background-color: #1A6A27;
+    color: white;
+    font-size: 2em;
+    width: 285px;
+    height: 85px;
+    border-radius: 30px;
+    border: none;
+}
+
+.kiri_bawah {
+    padding: 6em;
+    width: 960px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    margin-top: 6em;
+}
+
+.kanan_bawah {
+    padding: 6em;
+    width: 960px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+    justify-content: right;
+    text-align: right;
+    margin-top: 6em;
+}
+
+.kiri_bawah, .kanan_bawah{
+    position: relative;
+    z-index: 1;
+}
+
+.menu, .join_now{
+    cursor: pointer;
+}
+
+button:is(:hover, :focus) {
+    outline-style: solid;
+    outline-color: rgb(185, 182, 182);
+    outline-offset: 2px;
+    transition: outline-offset 0.3s ease;
+}
