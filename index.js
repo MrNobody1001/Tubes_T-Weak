@@ -105,6 +105,7 @@ app.post('/signup', (req, res) => {
                         console.error(insertErr);
                         res.status(500).send('Error');
                     } else {
+                        return res.status(200).json({ success: 'Account Created' });
                         console.log('Success!');
                         res.redirect('/login');
                     }
@@ -148,6 +149,33 @@ app.get('/membership', (req, res) => {
             const namaMember = results.length > 0? results[0].namaMember : null;
             const isMembership = results.length > 0? results[0].isMembership : null;
             res.render('Membership', { namaMember, isMembership });
+        }
+    });
+});
+
+app.get('/memberships', (req, res) => {
+    const userId = req.session.idUser2;
+    console.log(userId);
+    const checkMembershipQuery = 'SELECT isMembership FROM Member WHERE idMember = ?';
+    connection.query(checkMembershipQuery, [userId], (checkError, checkResults) => {
+        if (checkError) {
+            console.error('Error checking membership status:', checkError);
+            res.status(500).json({ error: 'An error occurred' });
+        } else {
+            const isMember = checkResults[0].isMembership === 1;
+            if (isMember) {
+                res.status(200).json({ alreadyMember: true });
+            } else {
+                const updateMembershipQuery = 'UPDATE Member SET isMembership = 1, saldoMember = saldoMember - 10 WHERE idMember = ?';
+                connection.query(updateMembershipQuery, [userId], (updateError, updateResults) => {
+                    if (updateError) {
+                        console.error('Error joining Membership:', updateError);
+                        res.status(500).json({ error: 'An error occurred' });
+                    } else {
+                        res.redirect('/membership');
+                    }
+                });
+            }
         }
     });
 });
@@ -434,19 +462,6 @@ app.get('/logout', (req, res) => {
     } else {
         res.redirect('/');
     }
-    });
-});
-
-app.get('/memberships', (req, res) => {
-    const userId = req.session.idUser2;
-    console.log(userId);
-    const queryMembership = 'update Member SET isMembership = 1, saldoMember = saldoMember - 10 WHERE idMember = ?';
-    connection.query(queryMembership, [userId], (error, results) => {
-        if (error) {
-            console.error('Error joining Membership:', error);
-        } else {
-            res.redirect('/membership');
-        }
     });
 });
 
