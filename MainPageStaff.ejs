@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page Staff</title>
+    <link rel="stylesheet" href="/MainPageStaff.css">
+</head>
+<body>
+    <div class="atas">
+        <div class="navbar">
+            <div class="logo">
+                <img src="/logo_putih.png" alt="" style="width: 250px;" onclick="javascript:location.href= '/mainpagestaff'">
+                <div class="logout" onclick="confirmLogout()"><img src="/logout.png" alt="" style="width: 60px;"></div>
+            </div>
+        </div>
+        <div class="container_kanan_kiri">
+            <div class="kanan">
+                <div class="tulis_besar"> <span style="color: red;">Token </span>Verification</span></div>
+                <div class="tulis_kecil">Make sure to match the token with customers</div>
+                <div class="button_join_now">
+                    <button class="join_now" onclick="javascript:location.href= '/verifstaff'">Verify</button>
+                </div>
+            </div>
+            <div class="kiri">
+                <div class="tulis_besar">Top Up <span style="color: red;">Points</span></div>
+                <div class="tulis_kecil">Help Customers to Top Up Points</div>
+                <div class="button_join_now">
+                    <button class="join_now" onclick="javascript:location.href= '/topup'">Top Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Log Out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/logout';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
