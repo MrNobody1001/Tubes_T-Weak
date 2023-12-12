@@ -73,7 +73,8 @@ app.post('/login', (req, res) => {
                         res.redirect('/mainpage');
                     });
                 } else {
-                    res.status(401).json({ error: 'Data tidak terdaftar' });
+                    console.log('Data tidak terdaftar');
+                    res.render('Login', { error: 'Please check your email and password' });
                 }
             });
         }
@@ -246,6 +247,10 @@ app.post('/bookschedule', (req, res) => {
     const userId = req.session.idUser2;
     console.log(date, time);
 
+    if (!date || !time) {
+        return res.status(400).json({ error: 'Date and time are required.' });
+    }
+    
     const membershipQuery = 'SELECT isMembership FROM Member WHERE idMember = ?';
     connection.query(membershipQuery, [userId], (membershipError, membershipResults) => {
         if (membershipError) {
