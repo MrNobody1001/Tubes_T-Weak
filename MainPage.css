@@ -12,13 +12,13 @@ body {
 
 .menu {
     display: flex;
-    font-size: 3em;
+    font-size: 2.5vw; 
     color: white;
 }
 
 .logo {
-    padding-right: 10em;
-    padding-left: 3em;
+    padding-right: 10vw;
+    padding-left: 1vw;
     color: whitesmoke;
     display: flex;
     flex-direction: row;
@@ -26,35 +26,38 @@ body {
 }
 
 .nama {
-    font-size: 2em;
+    font-size: 2vw;
 }
 
 .menu_1 {
-    padding-right: 1em;
+    padding-right: 2vw;
 }
 
-.atas{
+.atas {
     min-height: 1080px;
     width: auto;
     background-image: url("/home_bg.jpg");
     background-repeat: no-repeat;
-    padding-left: 4em;
-    padding-right: 4em;
+    background-size: cover;
+    background-position: center;
+    padding-left: 4vw;
+    padding-right: 4vw;
 }
-
 
 .bawah {
     min-height: 950px;
     background-image: url("/home_page_2.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     flex-direction: row;
-    padding-left: 4em;
-    padding-right: 4em;
+    padding-left: 4vw;
+    padding-right: 4vw;
     position: relative;
 }
 
-.bawah::before{
+.bawah::before {
     content: "";
     position: absolute;
     top: 0;
@@ -67,14 +70,14 @@ body {
 .container_kanan_kiri {
     display: flex;
     flex-direction: row;
+    margin-top: 10vw;
 }
 
-.kanan {
-    width: 960px;
+.kanan, .kiri {
+    width: 60vw;
 }
 
 .kiri, .kanan {
-    width: 960px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -84,63 +87,57 @@ body {
 }
 
 .container_kanan_kiri {
-    margin-top: 10em;
+    margin-top: 10vw;
 }
 
 .tulis_besar {
     color: white;
-    margin-bottom: 0.25em;
-    font-size: 5em;
+    margin-bottom: 0.25vw;
+    font-size: 5vw;
     font-weight: 1000;
     font-family: 'Montserrat', sans-serif;
 }
 
 .tulis_kecil {
     color: white;
-    font-size: 1.75em;
-    margin-bottom: 1em;
+    font-size: 1.75vw;
+    margin-bottom: 1vw;
 }
 
 .join_now {
     background-color: #1A6A27;
     color: white;
-    font-size: 2em;
-    width: 285px;
-    height: 85px;
+    font-size: 2vw;
+    width: 20vw;
+    height: 6vw;
     border-radius: 30px;
     border: none;
 }
 
-.kiri_bawah {
-    padding: 6em;
-    width: 960px;
+.kiri_bawah, .kanan_bawah {
+    padding: 6vw;
+    width: 60vw;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: left;
     justify-content: left;
     text-align: left;
-    margin-top: 6em;
+    margin-top: 6vw;
 }
 
 .kanan_bawah {
-    padding: 6em;
-    width: 960px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
     align-items: right;
     justify-content: right;
     text-align: right;
-    margin-top: 6em;
 }
 
-.kiri_bawah, .kanan_bawah{
+.kiri_bawah, .kanan_bawah {
     position: relative;
     z-index: 1;
 }
 
-.menu, .join_now{
+.menu, .join_now {
     cursor: pointer;
 }
 

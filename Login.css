@@ -137,5 +137,3 @@ button:is(:hover, :focus) {
     outline-offset: 2px;
     transition: outline-offset 0.3s ease;
 }
-
-

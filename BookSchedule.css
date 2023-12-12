@@ -4,6 +4,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-image: url("/home_bg.jpg");
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .navbar {
@@ -14,14 +16,13 @@ body {
 
 .menu {
     display: flex;
-    font-size: 3em;
+    font-size: 2.5vw; 
     color: white;
-    cursor: pointer;
 }
 
 .logo {
-    padding-right: 10em;
-    padding-left: 3em;
+    padding-right: 10vw;
+    padding-left: 1vw;
     color: whitesmoke;
     display: flex;
     flex-direction: row;
@@ -29,11 +30,11 @@ body {
 }
 
 .nama {
-    font-size: 2em;
+    font-size: 2vw;
 }
 
 .menu_1 {
-    padding-right: 1em;
+    padding-right: 2vw;
 }
 
 .atas {
@@ -47,7 +48,7 @@ body {
 
 .bawah {
     min-height: 843px;
-    min-width: 1692px;
+    min-width: auto;
     border-radius: 25px;
     background-color: white;
     display: flex;
@@ -57,20 +58,22 @@ body {
 
 .atas_tengah {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 1em;
     font-size: 3em;
     min-height: fit-content;
 }
 
 .kiri_atas_tengah {
-    min-width: 846px;
+    min-width: auto;
     min-height: fit-content;
 }
 
 .kanan_atas_tengah {
-    min-width: 846px;
-    text-align: end;
+    display: flex;
+    min-width: auto;
+    text-align: center;
+    margin-left: 1vw;
     min-height: fit-content;
 }
 
@@ -106,3 +109,34 @@ body {
     margin-top: 1.5em;
     margin-left: 5em;
 }
+
+@media only screen and (max-width: 768px) {
+    .bawah {
+      min-width: auto;
+      border-radius: 0;
+    }
+  
+    .atas_tengah {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .kiri_atas_tengah,
+    .kanan_atas_tengah {
+      min-width: auto;
+      text-align: center;
+    }
+  
+    .tengah_bawah {
+      margin: 1em;
+    }
+  
+    #timepicker {
+      width: 100%;
+    }
+  
+    .checks {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
