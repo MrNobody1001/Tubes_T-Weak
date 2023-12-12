@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat&family=Poppins:ital,wght@0,100;0,300;0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Login.css">
+</head>
+<body>
+    <form method="post" action="/login">
+        <div id="formSignUp">   
+            <div class="containerForm">
+                <div class="col">
+                    <div class="formImage"></div>
+                </div>
+                <div class="content">
+                    <div class="header">
+                        <img class="logo" src="/logo.png" alt="">
+                        <div class="header2">Welcome Back</div>
+                        <div class="header3">Login to your account</div>
+                    </div>
+                    <form action="/login" method="post" onsubmit="submitForm(event)">
+                        <div>
+                            <input class="inputForm" type="text" placeholder="Masukkan Email" name="email" id="emailInput" value="" required>
+                        </div>
+                        <div id="emailWarning" style="display: none; color: red;">Email must contain "@" symbol</div>
+                        <div>
+                            <input class="inputForm" type="password" placeholder="Masukkan Password" name="password" id="passwordInput" value="">
+                        </div>
+                        <div id="passwordWarning" style="display: none; color: red;">password must contain atleast 8 character</div>
+                        <div>
+                            <button class="button" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
