@@ -54,6 +54,15 @@
         }
 
         function confirmJoin() {
+        const isMember = <%= isMembership %>;
+        
+        if (isMember) {
+            Swal.fire({
+                icon: 'info',
+                title: 'Info',
+                text: 'You are already a member!',
+            });
+        } else {
             Swal.fire({
                 title: 'Are you sure?',
                 icon: 'warning',
@@ -67,12 +76,14 @@
                         icon: 'success',
                         title: 'Success',
                         text: `Thankyou for choosing us!`,
+                        text: `Thank you for choosing us!`,
                     }).then((result) => {
                         window.location.href = '/memberships';
                     });
                 }
             });
         }
+    }
     </script>
 </body>
 </html>

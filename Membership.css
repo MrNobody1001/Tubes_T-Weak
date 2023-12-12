@@ -12,13 +12,13 @@ body {
 
 .menu {
     display: flex;
-    font-size: 3em;
+    font-size: 2.5vw; 
     color: white;
 }
 
 .logo {
-    padding-right: 10em;
-    padding-left: 3em;
+    padding-right: 10vw;
+    padding-left: 1vw;
     color: whitesmoke;
     display: flex;
     flex-direction: row;
@@ -26,11 +26,11 @@ body {
 }
 
 .nama {
-    font-size: 2em;
+    font-size: 2vw; 
 }
 
 .menu_1 {
-    padding-right: 1em;
+    padding-right: 2vw; 
 }
 
 .atas {
@@ -38,8 +38,10 @@ body {
     width: auto;
     background-image: url("/gambar membership.jpg");
     background-repeat: no-repeat;
-    padding-left: 4em;
-    padding-right: 4em;
+    background-size: cover;
+    background-position: center;
+    padding-left: 4vw;
+    padding-right: 4vw;
 }
 
 .container_kanan_kiri {
