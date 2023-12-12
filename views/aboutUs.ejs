@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat&family=Poppins:ital,wght@0,100;0,300;0,700;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/aboutUs.css">
+</head>
+<body>
+    <div class="atas">
+        <div class="navbar">
+            <div class="logo">
+                <img src="/logo_putih.png" alt="" style="width: 250px;">
+                <div class="nama">Hello, <%= namaMember %> <%- isMembership === 0 ? '' : '<img src="/membership.png" alt="Membership Image" />' %> </div>
+            </div>
+            <div class="menu">
+                <div class="menu_1" onclick="javascript:location.href= '/mainpage'">Home</div>
+                <div class="menu_1" onclick="javascript:location.href= '/membership'">Membership</div>
+                <div class="menu_1" style="color: red;" onclick="javascript:location.href= '/aboutus'">About Us</div>
+                <div class="logout" onclick="confirmLogout()"><img src="/logout.png" alt="" style="width: 60px;"></div>
+            </div>
+        </div>
+        <div class="containerForm">
+            <div class="content">
+                <div class="content_1">Contact Us On:</div>
+                <div class="content_3">
+                    <img class="hp" src="/logo_hp.png" alt="">
+                    <div class="cp">
+                        <div>Mr. Kae</div>
+                        <div>+62-810-089-777</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="formImage"></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Log Out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/logout';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
