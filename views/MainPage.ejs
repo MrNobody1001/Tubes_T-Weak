@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="/MainPage.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="atas">
+        <div class="navbar">
+            <div class="logo">
+                <img src="/logo_putih.png" alt="" style="width: 250px;">
+                <div class="nama">Hello, <%= namaMember %> <%- isMembership === 0 ? '' : '<img src="/membership.png" alt="Membership Image" />' %> </div>
+            </div>
+            <div class="menu">
+                <div class="menu_1" style="color: red;" onclick="javascript:location.href= '/mainpage'">Home</div>
+                <div class="menu_1" onclick="javascript:location.href= '/membership'">Membership</div>
+                <div class="menu_1" onclick="javascript:location.href= '/aboutus'">About Us</div>
+                <div class="logout" onclick="confirmLogout()"><img src="/logout.png" alt="" style="width: 60px;"></div>
+            </div>
+        </div>
+        <div class="container_kanan_kiri">
+            <div class="kanan"></div>
+            <div class="kiri">
+                <div class="tulis_besar">GO BIG OR <span style="color: red;">GO HOME</span></div>
+                <div class="tulis_kecil">Focus on your goals without distractions from others in our Private Gym.</div>
+                <div class="button_join_now">
+                    <button class="join_now" onclick="javascript:location.href= '/bookschedule'">BOOK NOW</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bawah">
+        <div class="kiri_bawah">
+            <div class="tulis_besar">Book By <span style="color: red;">Your Time</span></div>
+            <div class="tulis_kecil">Set the Schedule as you like</div>
+            <div class="button_join_now">
+                <button class="join_now" onclick="javascript:location.href= '/bookschedule'">Schedule</button>
+            </div>
+        </div>
+        <div class="kanan_bawah">
+            <div class="tulis_besar" style="text-align: right;">Forgot Your <span style="color: red;">TOKEN</span></div>
+            <div class="tulis_kecil">Just in case if you forgot your tokens!</div>
+            <div class="button_join_now">
+                <button class="join_now" style="color: white;" onclick="javascript:location.href= '/viewtokens'">Tokens</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Log Out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/logout';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
