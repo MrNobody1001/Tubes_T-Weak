@@ -1,0 +1,117 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("/home_bg.jpg");
+    background-repeat: no-repeat;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    padding-right: 25em;
+    padding-left: 7em;
+    color: whitesmoke;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logout{
+    margin-left: 75em;
+    cursor: pointer;
+}
+
+.menu_1 {
+    padding-right: 2em;
+}
+
+.atas {
+    min-height: 1080px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4em;
+    padding-right: 4em;
+}
+
+.verif_id, .topup_point, .jumlah_bayar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 1em;
+}
+
+.bawah {
+    min-height: 843px;
+    min-width: 1692px;
+    border-radius: 25px;
+    background-color: white;
+    opacity: 0.7;
+}
+
+.atas_tengah {
+    padding: 1em;
+    font-size: 3em;
+    min-height: fit-content;
+}
+
+.kiri_atas_tengah {
+    min-width: 846px;
+    min-height: fit-content;
+}
+
+.kanan_atas_tengah {
+    min-width: 846px;
+    text-align: end;
+    min-height: fit-content;
+}
+
+.tengah_bawah {
+    margin-top: 1em;
+    margin-left: 1.75em;
+    font-size: 2em;
+}
+
+.input_form {
+    width: 550px;
+    height: 60px;
+    border-radius: 25px;
+    background-color: white;
+    font-size: 1em;
+    margin-left: 0.5em;
+    padding-left: .5em;
+}
+
+
+.input_form_2 {
+    width: 200px;
+    height: 60px;
+    border-radius: 25px;
+    background-color: white;
+    font-size: 1em;
+    margin-left: 0.5em;
+    padding-left: .5em;
+}
+
+.check_button {
+    background-color: red;
+    color: white;
+    font-size: 1em;
+    width: 200px;
+    height: 50px;
+    border-radius: 30px;
+    border: none;
+    margin-top: 2em;
+    margin-left: 7.5em;
+    cursor: pointer;
+}
+
+.token {
+    margin-left: 0.5em;
+}

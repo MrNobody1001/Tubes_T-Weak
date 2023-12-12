@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Verification</title>
+    <link rel="stylesheet" href="/VerifStaff.css">
+</head>
+<body>
+    <div class="atas">
+        <div class="navbar">
+            <div class="logo">
+                <img src="/logo_putih.png" alt="" style="width: 250px;" onclick="javascript:location.href= '/mainpagestaff'">
+                <div class="logout" onclick="confirmLogout()"><img src="/logout.png" alt="" style="width: 60px;"></div>
+            </div>
+        </div>
+        <div class="bawah">
+            <div class="atas_tengah">
+                <div class="kiri_atas_tengah">Member Verification</div>
+            </div>
+            <form action="/check-token" method="post" onsubmit="submitForm(event)">
+                <div class="tengah_bawah">
+                    <div class="verif_token">
+                        <div class="token">Token: </div>
+                        <input class="input_form" type="text" placeholder="Input Token" name="token" required>
+                    </div>                
+                    <div class="check">
+                        <button type="submit" class="check_button">CHECK</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script>
+    function submitForm(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new URLSearchParams(new FormData(form));
+
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+
+            Swal.fire({
+                icon: data.success ? 'success' : 'error',
+                title: data.success ? 'Success' : 'Error',
+                text: data.message,
+            });
+        })
+
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred. Please try again.');
+        });
+    }
+
+    function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Log Out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/logout';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
