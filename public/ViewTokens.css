@@ -97,7 +97,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
     .bawah {
       min-width: auto;
       border-radius: 0;

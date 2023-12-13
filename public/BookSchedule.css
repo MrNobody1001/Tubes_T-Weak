@@ -16,7 +16,7 @@ body {
 
 .menu {
     display: flex;
-    font-size: 2.5vw; 
+    font-size: 2vw; 
     color: white;
 }
 
@@ -111,31 +111,31 @@ body {
 
 @media only screen and (max-width: 768px) {
     .bawah {
-      min-width: auto;
-      border-radius: 0;
+        min-width: auto;
+        border-radius: 0;
     }
-  
+
     .atas_tengah {
-      flex-direction: column;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
     }
-  
+
     .kiri_atas_tengah,
     .kanan_atas_tengah {
-      min-width: auto;
-      text-align: center;
+        min-width: auto;
+        text-align: center;
     }
-  
+
     .tengah_bawah {
-      margin: 1em;
+        margin: 1em;
     }
-  
+
     #timepicker {
-      width: 100%;
+        width: 100%;
     }
-  
+
     .checks {
-      width: 100%;
-      margin-left: 0;
+        width: 100%;
+        margin-left: 0;
     }
-  }
+}
