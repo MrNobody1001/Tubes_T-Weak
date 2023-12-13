@@ -86,6 +86,8 @@
                     icon: data.success ? 'success' : 'error',
                     title: data.success ? 'Success' : 'Error',
                     text: data.message,
+                }).then((result) => {
+                    window.location.href = '/mainpagestaff'
                 });
             })
             .catch(error => {
