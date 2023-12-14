@@ -5,7 +5,7 @@ import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 
-aconst app = express();
+const app = express();
 
 const __filename = path.resolve();
 const __dirname = dirname(__filename);
