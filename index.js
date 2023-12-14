@@ -1,15 +1,13 @@
-import express, { query } from 'express';
-import { fileURLToPath } from 'url';
+import express from 'express.js';
 import { dirname } from 'path';
 import path from 'path';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import Swal from 'sweetalert2';
 
 const app = express();
 
-const __filename = fileURLToPath(import.meta.url);
+const __filename = path.resolve();
 const __dirname = dirname(__filename);
 
 app.use(express.static('public'));
@@ -101,14 +99,12 @@ app.post('/signup', (req, res) => {
             if (emailExists) {
                 return res.status(409).json({ error: 'Email already exists' });
             } else {
-                connection.query(insertQuery, values, (insertErr, insertResult) => {
+                connection.query(insertQuery, values, (insertErr) => {
                     if (insertErr) {
                         console.error(insertErr);
                         res.status(500).send('Error');
                     } else {
                         return res.status(200).json({ success: 'Account Created' });
-                        console.log('Success!');
-                        res.redirect('/login');
                     }
                 });
             }
@@ -168,7 +164,7 @@ app.get('/memberships', (req, res) => {
                 res.status(200).json({ alreadyMember: true });
             } else {
                 const updateMembershipQuery = 'UPDATE Member SET isMembership = 1, saldoMember = saldoMember - 10 WHERE idMember = ?';
-                connection.query(updateMembershipQuery, [userId], (updateError, updateResults) => {
+                connection.query(updateMembershipQuery, [userId], (updateError) => {
                     if (updateError) {
                         console.error('Error joining Membership:', updateError);
                         res.status(500).json({ error: 'An error occurred' });
@@ -305,7 +301,7 @@ app.post('/bookschedule', (req, res) => {
                         return res.status(500).json({ error: 'An error occurred' });
                     }
                     const bookingQuery = 'INSERT INTO Booking (statusPembayaran, idMember, idToken, idSchedule) VALUES (?, ?, ?, ?)';
-                    connection.query(bookingQuery, [1, userId, authTokenResults.insertId, scheduleResults.insertId], function (error, bookingResults) {
+                    connection.query(bookingQuery, [1, userId, authTokenResults.insertId, scheduleResults.insertId], function (error) {
                         if (error) {
                             console.error('Error inserting into Booking:', error);
                             return res.status(500).json({ error: 'An error occurred' });
@@ -313,7 +309,7 @@ app.post('/bookschedule', (req, res) => {
 
                         if (!isMembership) {
                             const saldoKurang = 'UPDATE Member SET saldoMember = saldoMember - 1 WHERE idMember = ?';
-                            connection.query(saldoKurang, [userId], function (error, updateResults) {
+                            connection.query(saldoKurang, [userId], function (error) {
                                 if (error) {
                                     console.error('Error updating saldoMember:', error);
                                     return res.status(500).json({ error: 'An error occurred' });
@@ -441,7 +437,7 @@ app.post('/check-token', (req, res) => {
             const memberId = results[0].idMember;
 
             const queryUpdate = 'UPDATE authtoken SET tokenEligible = 0 WHERE tokenNumber = ?';
-            connection.query(queryUpdate, [token], (updateError, updateResults) => {
+            connection.query(queryUpdate, [token], (updateError) => {
                 if (updateError) {
                     console.error('Error updating token:', updateError);
                     return res.status(500).json({ success: false, message: 'An error occurred' });
