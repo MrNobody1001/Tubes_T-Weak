@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Montserrat&family=Poppins:ital,wght@0,100;0,300;0,700;1,700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="/Login.css">
 </head>
 <body>
@@ -30,11 +31,24 @@
                         <div>
                             <input class="inputForm" type="password" placeholder="Masukkan Password" name="password" id="passwordInput" value="">
                         </div>
-                        <div id="passwordWarning" style="display: none; color: red;">password must contain atleast 8 character</div>
+                        <div id="passwordWarning" style="display: none; color: red;">Password must contain at least 8 characters</div>
                         <div>
                             <button class="button" type="submit">Login</button>
                         </div>
                     </form>
+                    <% if (typeof error !== 'undefined' && error) { %>
+                        <script>
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: '<%= error %>',
+                            });
+                        </script>
+                    <% } else { %>
+                        <script>
+                            console.log("No error defined");
+                        </script>
+                    <% } %>
                 </div>
             </div>
         </div>

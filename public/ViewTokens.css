@@ -16,7 +16,7 @@ body {
 
 .menu {
     display: flex;
-    font-size: 2.5vw; 
+    font-size: 2vw; 
     color: white;
 }
 
@@ -74,7 +74,6 @@ body {
     display: flex;
     min-width: auto;
     text-align: center;
-    margin-left: 1vw;
     min-height: fit-content;
 }
 
@@ -98,7 +97,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    /* Styles for screens up to 768px wide */
     .bawah {
       min-width: auto;
       border-radius: 0;

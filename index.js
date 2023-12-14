@@ -41,6 +41,7 @@ app.get('/login', (req, res) => {
     res.render('Login');
 });
 
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     console.log('Received login request:', email, password);
