@@ -7,7 +7,7 @@ import session from 'express-session';
 
 const app = express();
 
-aconst __filename = path.resolve();
+const __filename = path.resolve();
 const __dirname = dirname(__filename);
 
 app.use(express.static('public'));
