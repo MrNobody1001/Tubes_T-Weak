@@ -270,7 +270,7 @@ app.post('/bookschedule', (req, res) => {
 
             function generateUniqueToken(userId) {
                 const currentDate = new Date();
-                const day = currentDate.getDate().toString().padStart(2, '0');
+                const day = currentDate.getDate().toString().padStarts(2, '0');
                 const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
                 const year = currentDate.getFullYear().toString().substr(-2);
             
