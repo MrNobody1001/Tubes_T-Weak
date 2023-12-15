@@ -1,11 +1,10 @@
-import express, { query } from 'express';
+import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import Swal from 'sweetalert2';
 
 const app = express();
 
