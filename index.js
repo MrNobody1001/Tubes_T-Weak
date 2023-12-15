@@ -121,7 +121,7 @@ app.get('/mainpage', (req, res) => {
         return res.redirect('/');
     }
 
-    const query = 'SELECT namaMember, isMembership FROM member WHERE idMember = ?'
+    const query = 'SELECT namaMember, isMembership FROM Member WHERE idMember = ?'
     connection.query(query, [userId], (error, results) => {
         if (error) {
             console.log('Error:', error);
@@ -140,7 +140,7 @@ app.get('/membership', (req, res) => {
         return res.redirect('/');
     }
 
-    const query = 'SELECT namaMember, isMembership FROM member WHERE idMember = ?'
+    const query = 'SELECT namaMember, isMembership FROM Member WHERE idMember = ?'
     connection.query(query, [userId], (error, results) => {
         if (error) {
             console.log('Error:', error);
@@ -186,7 +186,7 @@ app.get('/aboutus', (req, res) => {
         return res.redirect('/');
     }
 
-    const query = 'SELECT namaMember, isMembership FROM member WHERE idMember = ?'
+    const query = 'SELECT namaMember, isMembership FROM Member WHERE idMember = ?'
     connection.query(query, [userId], (error, results) => {
         if (error) {
             console.log('Error:', error);
@@ -205,7 +205,7 @@ app.get('/bookschedule', (req, res) => {
         return res.redirect('/');
     }
     console.log(userId);
-    const query = 'SELECT saldoMember, namaMember, isMembership FROM member WHERE idMember = ?';
+    const query = 'SELECT saldoMember, namaMember, isMembership FROM Member WHERE idMember = ?';
     connection.query(query, [userId], (error, results) => {
         if (error) {
             console.log('Error:', error);
@@ -338,9 +338,9 @@ app.get('/viewtokens', (req, res) => {
     if (userId === undefined) {
         return res.redirect('/');
     }
-    const memberQuery = 'SELECT namaMember, saldoMember, isMembership FROM member WHERE idMember = ?';
+    const memberQuery = 'SELECT namaMember, saldoMember, isMembership FROM Member WHERE idMember = ?';
 
-    const tokensQuery = 'SELECT ScheduleGym.startDate, ScheduleGym.startTime, ScheduleGym.endTime, AuthToken.tokenNumber, AuthToken.tokenEligible FROM booking JOIN ScheduleGym ON booking.idSchedule = ScheduleGym.idSchedule JOIN AuthToken ON AuthToken.idToken = booking.idToken WHERE booking.idMember = ?';
+    const tokensQuery = 'SELECT ScheduleGym.startDate, ScheduleGym.startTime, ScheduleGym.endTime, AuthToken.tokenNumber, AuthToken.tokenEligible FROM Booking JOIN ScheduleGym ON Booking.idSchedule = ScheduleGym.idSchedule JOIN AuthToken ON AuthToken.idToken = Booking.idToken WHERE Booking.idMember = ?';
 
     Promise.all([
         executeQuery(memberQuery, [userId]),
@@ -428,7 +428,7 @@ app.get('/verifstaff', (req, res) => {
 app.post('/check-token', (req, res) => {
     const { token } = req.body;
 
-    const querySelect = 'SELECT member.idMember FROM member JOIN authtoken ON member.`idMember` = authtoken.`idMember` WHERE authtoken.`tokenNumber` = ? AND authtoken.`tokenEligible` = 1';
+    const querySelect = 'SELECT Member.idMember FROM Member JOIN AuthToken ON Member.`idMember` = AuthToken.`idMember` WHERE AuthToken.`tokenNumber` = ? AND AuthToken.`tokenEligible` = 1';
 
     connection.query(querySelect, [token], (error, results) => {
         if (error) {
@@ -439,7 +439,7 @@ app.post('/check-token', (req, res) => {
         if (results.length > 0) {
             const memberId = results[0].idMember;
 
-            const queryUpdate = 'UPDATE authtoken SET tokenEligible = 0 WHERE tokenNumber = ?';
+            const queryUpdate = 'UPDATE AuthToken SET tokenEligible = 0 WHERE tokenNumber = ?';
             connection.query(queryUpdate, [token], (updateError) => {
                 if (updateError) {
                     console.error('Error updating token:', updateError);
