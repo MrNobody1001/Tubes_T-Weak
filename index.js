@@ -156,7 +156,7 @@ app.get('/membership', (req, res) => {
 app.get('/memberships', (req, res) => {
     const userId = req.session.idUser2;
     console.log(userId);
-    const checkMembershipQuery = 'SELECT isMembership FROM Member WHERE idMember = ?';
+    const checkMembershipQuery = 'SELECT isMembership, saldoMember FROM Member WHERE idMember = ?';
     connection.query(checkMembershipQuery, [userId], (checkError, checkResults) => {
         if (checkError) {
             console.error('Error checking membership status:', checkError);
