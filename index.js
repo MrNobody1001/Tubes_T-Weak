@@ -1,13 +1,15 @@
-import express from 'express.js';
+import express, { query } from 'express';
+import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import Swal from 'sweetalert2';
 
-aconst app = express();
+const app = express();
 
-const __filename = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 app.use(express.static('public'));
@@ -25,10 +27,10 @@ app.use(session({
 }));
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'tubes_rpl',
+    host: 'williamsuryawijaya.my.id',
+    user: 'williams_tubes_rpl',
+    password: 'sekelimus',
+    database: 'williams_tubes_rpl',
 });
 
 app.set('view engine', 'ejs');
