@@ -139,7 +139,7 @@ app.get('/membership', (req, res) => {
         return res.redirect('/');
     }
 
-    const query = 'SELECT namaMember, isMembership FROM Member WHERE idMember = ?'
+    const query = 'SELECT namaMember, isMembership, saldoMember FROM Member WHERE idMember = ?'
     connection.query(query, [userId], (error, results) => {
         if (error) {
             console.log('Error:', error);
@@ -147,7 +147,8 @@ app.get('/membership', (req, res) => {
         } else {
             const namaMember = results.length > 0? results[0].namaMember : null;
             const isMembership = results.length > 0? results[0].isMembership : null;
-            res.render('Membership', { namaMember, isMembership });
+            const saldoMember = results.length > 0? results[0].saldoMember : 0;
+            res.render('Membership', { namaMember, isMembership, saldoMember });
         }
     });
 });

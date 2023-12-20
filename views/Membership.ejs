@@ -55,12 +55,19 @@
 
         function confirmJoin() {
         const isMember = <%= isMembership %>;
+        const pointMember = <%= saldoMember %>;
         
         if (isMember) {
             Swal.fire({
                 icon: 'info',
                 title: 'Info',
                 text: 'You are already a member!',
+            });
+        } else if (pointMember < 10) {
+            Swal.fire({
+                icon: 'info',
+                title: 'Info',
+                text: 'Incufficient Balance, please contact staff.',
             });
         } else {
             Swal.fire({
