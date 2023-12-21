@@ -221,6 +221,12 @@ app.get('/bookschedule', (req, res) => {
 
 app.post('/check-availability', (req, res) => {
     const { date, time } = req.body;
+    
+    if (!date || !time) {
+        return res.status(400).json({ error: 'Date and time are required' });
+    }
+
+    console.log(date, time);
 
     connection.query('SELECT COUNT(*) as numBookings FROM ScheduleGym WHERE startDate = ? AND startTime = ?', [date, time], (error, results) => {
         if (error) {
@@ -239,6 +245,7 @@ app.post('/check-availability', (req, res) => {
         }
     });
 });
+
 
 
 app.post('/bookschedule', (req, res) => {
