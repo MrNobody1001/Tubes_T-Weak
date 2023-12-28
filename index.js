@@ -42,7 +42,7 @@ app.get('/login', (req, res) => {
     res.render('Login');
 });
 
-
+// staff and user login
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
     console.log('Received login request:', email, password);
@@ -81,7 +81,8 @@ app.post('/login', (req, res) => {
     });
 });
 
-
+//===========================================
+//client side
 app.get('/signup', (req, res) => {
     res.render('SignUp');
 });
@@ -246,8 +247,6 @@ app.post('/check-availability', (req, res) => {
     });
 });
 
-
-
 app.post('/bookschedule', (req, res) => {
     const { date, time } = req.body;
     const userId = req.session.idUser2;
@@ -338,8 +337,6 @@ app.post('/bookschedule', (req, res) => {
     });
 });
 
-
-
 app.get('/viewtokens', (req, res) => {
     const userId = req.session.idUser2;
     if (userId === undefined) {
@@ -386,6 +383,9 @@ function executeQuery(query, params) {
     });
 }
 
+
+//======================================
+// staff side
 app.get('/mainpagestaff', (req, res) => {
     const userId = req.session.idUser;
     if (userId === undefined) {
