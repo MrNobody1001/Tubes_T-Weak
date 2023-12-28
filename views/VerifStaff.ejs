@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Token Verification</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <link rel="stylesheet" href="/VerifStaff.css">
 </head>
 <body>
@@ -33,7 +34,6 @@
             </form>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
     function submitForm(event) {
         event.preventDefault();
@@ -57,8 +57,8 @@
                 title: data.success ? 'Success' : 'Error',
                 text: data.message,
             }).then((result) => {
-                        window.location.href = '/verifstaff';
-                    });
+                window.location.href = '/verifstaff';
+            });
         })
 
         .catch(error => {

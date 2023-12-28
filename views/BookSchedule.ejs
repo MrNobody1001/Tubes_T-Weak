@@ -99,6 +99,16 @@
     function bookSchedule() {
     event.preventDefault();
     const selectedDate = $("#datepicker").val();
+
+    if (!selectedDate) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Failed',
+            text: 'Please select a date before booking.',
+        });
+        return;
+    }
+
     const formattedDate = formatDate(selectedDate);
 
     function formatDate(dateString) {
