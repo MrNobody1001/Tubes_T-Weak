@@ -5,9 +5,12 @@ import path from 'path';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import session from 'express-session';
-import crypto from 'crypto';
 
 const app = express();
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -54,9 +57,8 @@ app.post('/login', (req, res) => {
             console.log('Error:', error);
             res.status(500).json({ error: 'An error occurred' });
         } else if (staffResults.length > 0) {
-            const { idStaff, namaStaff } = staffResults[0];
+            const { idStaff } = staffResults[0];
             req.session.idUser = idStaff;
-            req.session.userName = namaStaff;
             req.session.save(() => {
                 res.redirect('/mainpagestaff');
             });
@@ -67,9 +69,8 @@ app.post('/login', (req, res) => {
                     console.log('Error:', error);
                     res.status(500).json({ error: 'An error occurred' });
                 } else if (memberResults.length > 0) {
-                    const { idMember, namaMember } = memberResults[0];
+                    const { idMember } = memberResults[0];
                     req.session.idUser2 = idMember;
-                    req.session.userName2 = namaMember;
                     req.session.save(() => {
                         res.redirect('/mainpage');
                     });
@@ -472,8 +473,4 @@ app.get('/logout', (req, res) => {
         res.redirect('/');
     }
     });
-});
-
-app.listen(3000, () => {
-    console.log('Server running on port 3000');
 });
