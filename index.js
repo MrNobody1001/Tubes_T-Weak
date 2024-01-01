@@ -5,6 +5,7 @@ import path from 'path';
 import mysql from 'mysql';
 import bodyParser from 'body-parser';
 import session from 'express-session';
+import crypto from 'crypto';
 
 const app = express();
 
@@ -47,7 +48,7 @@ app.post('/login', (req, res) => {
     const { email, password } = req.body;
     console.log('Received login request:', email, password);
 
-    connection.query('SELECT idStaff, namaStaff FROM StaffGym WHERE idStaff = ? AND passwordStaff = ?', [email, password], (error, staffResults) => {
+    connection.query('SELECT idStaff, namaStaff FROM StaffGym WHERE emailStaff = ? AND passwordStaff = ?', [email, password], (error, staffResults) => {
         console.log('Staff query results:', staffResults);
         if (error) {
             console.log('Error:', error);
@@ -296,6 +297,7 @@ app.post('/bookschedule', (req, res) => {
             const scheduleQuery = 'INSERT INTO ScheduleGym (startDate, startTime, endTime) VALUES (?, ?, ?)';
             const startTime = new Date(`2000-01-01T${time}`);
             const endTime = new Date(startTime.getTime() + 2 * 60 * 60 * 1000);
+            console.log(startTime, endTime)
             connection.query(scheduleQuery, [date, startTime, endTime], function (error, scheduleResults) {
                 console.log(scheduleResults);
                 if (error) {
